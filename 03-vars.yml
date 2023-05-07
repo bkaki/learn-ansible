@@ -25,13 +25,13 @@
 
 # Only that task have that variable, other tasks cannot access it.
 
-- name: load vars from a file
+- name: Load vars from a file
   hosts: all
   vars_files:
     - exvars.yml
   tasks:
-    - name: print URL
-      ansible.builtin.debug
+    - name: Print URL
+      ansible.builtin.debug:
         msg: URL - {{ URL }}
 
 # vars_files does not support task level, it is for play level only
