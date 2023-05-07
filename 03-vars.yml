@@ -14,5 +14,12 @@
 # msg: {{ URL }} <- This requires quoting
 # msg: URL - {{ URL }} <- This does not require quoting
 
-
+- name: demo on play level variables
+  hosts: all
+  tasks:
+    - name: Print URL
+      ansible.builtin.debug:
+        msg: task - {{ URL }}
+      vars:
+        URL: play.example.com
 
