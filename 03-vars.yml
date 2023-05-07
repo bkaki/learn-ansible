@@ -25,7 +25,7 @@
 
 # vars_files does not support task level, it is for play level only
 
-- name: demo on task level variables
+- name: Demo on Task Level Variables
   hosts: all
   tasks:
     - name: Print URL
@@ -35,6 +35,13 @@
         URL: tasks.example.com
 
 # Only that task have that variable, other tasks cannot access it.
+
+- name: variable from roles
+  hosts: all
+  vars:
+    URL_PLAY: play.example.com
+  roles:
+    - sample
 
 
 
