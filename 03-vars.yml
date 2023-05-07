@@ -3,9 +3,9 @@
   vars:
     URL: play.example.com
     tasks:
-- name: print URL
-  ansible.builtin.debug:
-  msg: URL {{ }}
+       - name: print URL
+         ansible.builtin.debug:
+         msg: URL {{ }}
 
 
 # In Ansible variable will be accessed using {{ }} ,
