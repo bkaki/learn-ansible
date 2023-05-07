@@ -14,6 +14,17 @@
 # msg: {{ URL }} <- This requires quoting
 # msg: URL - {{ URL }} <- This does not require quoting
 
+- name: Load vars from a file
+  hosts: all
+  vars_files:
+    - exvars.yml
+  tasks:
+    - name: Print URL
+      ansible.builtin.debug:
+        msg: URL - {{ URL }}
+
+# vars_files does not support task level, it is for play level only
+
 - name: demo on task level variables
   hosts: all
   tasks:
@@ -25,14 +36,6 @@
 
 # Only that task have that variable, other tasks cannot access it.
 
-- name: Load vars from a file
-  hosts: all
-  vars_files:
-    - exvars.yml
-  tasks:
-    - name: Print URL
-      ansible.builtin.debug:
-        msg: URL - {{ URL }}
 
-# vars_files does not support task level, it is for play level only
+
 
